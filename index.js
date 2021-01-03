@@ -8,6 +8,7 @@
 const http = require('http');
 const  url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
+const config = require('./config');
 
 
 
@@ -64,6 +65,7 @@ const server = http.createServer((req,res) =>{
             let payloadString = JSON.stringify(payload);
 
             //Return the response
+            res.setHeader('Content-type', 'application/json');
             res.writeHead(statusCode);
             res.end(payloadString);
             //Log the reponse path
@@ -74,9 +76,9 @@ const server = http.createServer((req,res) =>{
 
 });
 
-// Start the server and have it listen on port 5000
-server.listen(5000,()=>{
-    console.log("the server is listening on port 5000")
+// Start the server 
+server.listen(config.port,()=>{
+    console.log("the server is listening on port", config.port + " in", config.envName + " mode" )
 });
 
 //Define Handlers
