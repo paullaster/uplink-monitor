@@ -11,8 +11,13 @@ const  url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 const fs = require('fs');
+//const _data = require('./lib/data');
 
-
+// //TESTING 
+// // @TODO  comment out this
+// _data.delete('test1','newfile', (err) =>{
+//   console.log('There was an error', err );
+// });
 
 //the server should repsond to all request with a string
 //Instanciating http server
@@ -111,11 +116,11 @@ let unifiedServer = (req, res) =>{
 
 //Define Handlers
 let handlers ={};
-//sample handler
-// handlers.sample = (data, cb)=>{
-// //Call back HTTP status code, and a payload object
-// cb(406, {'name': "sample handler"});
-// };
+// //sample handler
+//  handlers.sample = (data, cb)=>{
+// // //Call back HTTP status code, and a payload object
+//  cb(406, {'name': "sample handler"});
+//  };
 
 //Ping handler
 handlers.ping = (data, cb) =>{
@@ -129,6 +134,6 @@ cb(404);
 
 //Define the request router
 const router ={
- // "sample" : handlers.sample
+  // "sample" : handlers.sample,
  'ping' : handlers.ping
 };
