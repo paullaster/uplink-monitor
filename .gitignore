@@ -17,7 +17,7 @@ application/logs/*
 /vendor/
 
 #key-file
-https
+./https/
 
 #data file
-.data
+./.data/
