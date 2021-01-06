@@ -11,6 +11,7 @@ const  url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 const fs = require('fs');
+const handlers = require('./lib/handlers');
 //const _data = require('./lib/data');
 
 // //TESTING 
@@ -114,26 +115,10 @@ let unifiedServer = (req, res) =>{
 
 
 
-//Define Handlers
-let handlers ={};
-// //sample handler
-//  handlers.sample = (data, cb)=>{
-// // //Call back HTTP status code, and a payload object
-//  cb(406, {'name': "sample handler"});
-//  };
-
-//Ping handler
-handlers.ping = (data, cb) =>{
- cb(200);
-};
-
-//Not found handler
-handlers.notFound = (data, cb) =>{
-cb(404);
-};
 
 //Define the request router
 const router ={
   // "sample" : handlers.sample,
- 'ping' : handlers.ping
+ 'ping' : handlers.ping,
+ 'users': handlers.users
 };

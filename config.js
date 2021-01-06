@@ -11,14 +11,16 @@ let environment = {};
 environment.staging = {
     'httpPort': 5000,
     'httpsPort': 5001,
-    'envName': "Staging"
+    'envName': "Staging",
+    'hashingSecret':"thisIsASecret"
 }
 
 //Production environment
 environment.production = {
     'httpPort': 5500,
     'httpsPort' : 5501,
-    'envName': "Production"
+    'envName': "Production",
+    'hashingSecret':"thisIsAlsoASecret"
 }
 
 //Determine which environment was passed as command-line argument
